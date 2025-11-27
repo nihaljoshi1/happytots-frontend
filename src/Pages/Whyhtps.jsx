@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './whyhtps.css';
+import './Whyhtps.css';
 import axios from 'axios';
 
 
