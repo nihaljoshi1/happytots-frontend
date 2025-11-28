@@ -214,7 +214,7 @@ const Gallery = () => {
       </div>
 
       {/* Gallery Grid */}
-      {/* <div className="staggered-gallery">
+      <div className="staggered-gallery">
         {columns.map((col, colIdx) => (
           <div className="column" key={colIdx}>
             {col.reverse().map((item, idx) => (
@@ -230,8 +230,7 @@ const Gallery = () => {
             ))}
           </div>
         ))}
-      </div> */}
-
+      </div>
       <div className="staggered-gallery">
         {filteredData.map((item, idx) => (
           <div className="gallery-item" key={idx}>
