@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 export const BusJourney = () => {
@@ -6,34 +6,18 @@ export const BusJourney = () => {
   const sceneRef = useRef(null);
   const animationPlayedRef = useRef(false);
 
-  const [uspItems, setUspItems] = useState([]);
+  const checkpoints = [
+    { posPercent: 20, id: "p1" },
+    { posPercent: 40, id: "p2" },
+    { posPercent: 60, id: "p3" },
+    { posPercent: 80, id: "p4" },
+  ];
 
-  // Fetch USP Items From Backend
   useEffect(() => {
-    fetch("http://localhost:5000/api/images/getimages?section=usp")
-      .then((res) => res.json())
-      .then((data) => {
-        const sorted = data.images.sort(
-          (a, b) => Number(a.position) - Number(b.position)
-        );
-        setUspItems(sorted);
-      })
-      .catch((err) => console.error("USP Fetch Error:", err));
-  }, []);
-
-  // Bus Animation Logic
-  useEffect(() => {
-    if (uspItems.length === 0) return;
-
     const bus = busRef.current;
     const scene = sceneRef.current;
 
     if (!bus || !scene) return;
-
-    const checkpoints = uspItems.map((item, i) => ({
-      posPercent: (i + 1) * 20,
-      id: `p${i + 1}`,
-    }));
 
     const handleHoverStart = () => {
       if (animationPlayedRef.current) return;
@@ -69,7 +53,6 @@ export const BusJourney = () => {
             ) {
               popup.style.display = "block";
               popup.classList.add("shown");
-
               setTimeout(() => popup.classList.add("active"), 10);
 
               if (
@@ -77,7 +60,8 @@ export const BusJourney = () => {
                 !checkpointEl.classList.contains("checked")
               ) {
                 checkpointEl.classList.add("checked");
-                if (checkpointImg) checkpointImg.src = "/src/img/bm2.png";
+                if (checkpointImg)
+                  checkpointImg.src = "/src/img/bm2.png";
               }
             }
           });
@@ -88,13 +72,15 @@ export const BusJourney = () => {
     scene.addEventListener("mouseenter", handleHoverStart);
     return () =>
       scene.removeEventListener("mouseenter", handleHoverStart);
-  }, [uspItems]);
+  }, []);
 
   return (
     <div>
       {/* Title Section */}
       <div className="title-container">
-        <h1 className="section-title">O U R&nbsp;&nbsp;U S P</h1>
+        <h1 className="section-title">
+          O U R&nbsp;&nbsp;U S P
+        </h1>
       </div>
 
       {/* Bus Journey Scene */}
@@ -123,37 +109,50 @@ export const BusJourney = () => {
           <img src="/src/img/kid.png" alt="Bus" />
         </div>
 
-        {/* Dynamic USP Stops */}
-        {uspItems.map((item, index) => (
-          <React.Fragment key={item._id}>
-            {/* Checkpoint Image */}
+        {/* USP SECTION — HARD-CODED */}
+        {[1, 2, 3, 4].map((i) => (
+          <React.Fragment key={i}>
             <div
               className="checkpoint"
-              style={{ left: `${(index + 1) * 20}%` }}
-              id={`cp${index + 1}`}
+              style={{ left: `${i * 20}%` }}
+              id={`cp${i}`}
             >
               <img src="/src/img/bm.png" alt="checkpoint" />
             </div>
 
-            {/* Popup (Bus Stop) */}
             <div
               className="bus-stop"
-              style={{ left: `${(index + 1) * 20}%` }}
-              id={`p${index + 1}`}
+              style={{ left: `${i * 20}%` }}
+              id={`p${i}`}
             >
-              <div className="bus-sign" id={`b${index + 1}`}>
-                {}
+              <div className="bus-sign" id={`b${i}`}>
                 <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className="usp-icon"
+                  src={[
+                    "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764301307/happyTots/cyjfxg2r20noorzymyud.png",
+                    "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764303392/happyTots/rw9sq1tvcyqvmxc22mts.png",
+                    "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764301307/happyTots/<THIRD>",
+                    "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764301307/happyTots/<FOURTH>",
+                  ][i - 1]}
+                  alt=""
                 />
 
-                {/* Dynamic Title */}
-                <h4>{item.title}</h4>
+                <h4>
+                  {[
+                    "Safe & Nurturing Environment",
+                    "Experienced, Loving Teachers",
+                    "More Than Preschool Family",
+                    "Growing Future-Ready Kids",
+                  ][i - 1]}
+                </h4>
 
-                {/* Dynamic Description */}
-                <p>{item.description}</p>
+                <p>
+                  {[
+                    "A warm space where every child feels secure and cared for.",
+                    "Passionate educators who understand and support each child.",
+                    "A close-knit community where your child feels at home.",
+                    "From mindfulness to motor skills, we nurture confident, kind learners.",
+                  ][i - 1]}
+                </p>
               </div>
             </div>
           </React.Fragment>
