@@ -117,7 +117,7 @@ export const BusJourney = () => {
               style={{ left: `${i * 20}%` }}
               id={`cp${i}`}
             >
-              <img src="https://res.cloudinary.com/dwyjoekgh/image/upload/v1764304137/happyTots/npn8xiyevlwqpa0vsi7w.png"" alt="checkpoint" />
+              <img src="https://res.cloudinary.com/dwyjoekgh/image/upload/v1764304137/happyTots/npn8xiyevlwqpa0vsi7w.png" alt="checkpoint" />
             </div>
 
             <div
