@@ -130,8 +130,8 @@ export const BusJourney = () => {
                   src={[
                     "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764301307/happyTots/cyjfxg2r20noorzymyud.png",
                     "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764303392/happyTots/rw9sq1tvcyqvmxc22mts.png",
-                    "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764301307/happyTots/<THIRD>",
-                    "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764301307/happyTots/<FOURTH>",
+                    "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764303604/happyTots/jivjneevec2al3xkiqu3.png",
+                    "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764303674/happyTots/whd7hclprq53nol6tniq.png",
                   ][i - 1]}
                   alt=""
                 />
