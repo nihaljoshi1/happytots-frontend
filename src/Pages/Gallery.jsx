@@ -2,25 +2,22 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Gallery.css"; // Extracted CSS should be placed here
 
 const galleryData = [
-  { category: "activities", img: "img/feelhome.jpg", alt: "Activity" },
-  { category: "activities", img: "img/feelhome.jpg", alt: "Activity" },
-  { category: "activities", img: "img/feelhome.jpg", alt: "Activity" },
-  { category: "activities", img: "img/feelhome.jpg", alt: "Activity" },
+  { category: "activities", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764690855/happyTots/bakedgaxl7genxmzhrwf.jpg", alt: "Activity" },
+  { category: "activities", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764690941/happyTots/mu0c7o7hyeyp73zen7g4.jpg", alt: "Activity" },
+  { category: "activities", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764691008/happyTots/fjb1ndq3kuf4bkcbtiaz.jpg", alt: "Activity" },
+  { category: "activities", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764691047/happyTots/umgcvweb0r4ngxiwnekf.jpg", alt: "Activity" },
 
-  { category: "classrooms", img: "img/futurekids.jpg", alt: "Classroom" },
-  { category: "classrooms", img: "img/futurekids.jpg", alt: "Classroom" },
-  { category: "classrooms", img: "img/futurekids.jpg", alt: "Classroom" },
-  { category: "classrooms", img: "img/futurekids.jpg", alt: "Classroom" },
+  { category: "classrooms", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764691122/happyTots/t2czhwpktdslvmyhnzhu.jpg", alt: "Classroom" },
+  { category: "classrooms", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764691191/happyTots/h5mtqtseiu1d6l42md4r.jpg", alt: "Classroom" },
+  { category: "classrooms", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764691656/happyTots/zibw9x7omlbafaqxt41j.jpg", alt: "Classroom" },
+  { category: "classrooms", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764691916/happyTots/xkgkksubd1wdihs62fcj.jpg", alt: "Classroom" },
 
-  { category: "play-areas", img: "img/teacher.png", alt: "Play Area" },
-  { category: "play-areas", img: "img/teacher.png", alt: "Play Area" },
-  { category: "play-areas", img: "img/teacher.png", alt: "Play Area" },
-  { category: "play-areas", img: "img/teacher.png", alt: "Play Area" },
+  { category: "play-areas", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764691983/happyTots/n6hso0pin5pqdnuuf3p1.jpg", alt: "Play Area" },
+  { category: "play-areas", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764692016/happyTots/emkimwmmik5cim7n7qyt.jpg", alt: "Play Area" },
 
-  { category: "celebrations", img: "img/logo.png", alt: "Celebration" },
-  { category: "celebrations", img: "img/logo.png", alt: "Celebration" },
-  { category: "celebrations", img: "img/logo.png", alt: "Celebration" },
-  { category: "celebrations", img: "img/logo.png", alt: "Celebration" },
+  { category: "celebrations", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764692166/happyTots/wmvnxq8j6y7inlswiaox.jpg", alt: "Celebration" },
+  { category: "celebrations", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764692306/happyTots/sdknx2xq0tnuncxepsmh.jpg", alt: "Celebration" },
+  { category: "celebrations", img: "https://res.cloudinary.com/dwyjoekgh/image/upload/v1764692340/happyTots/c69xhubb50ampg6ouw3a.jpg", alt: "Celebration" },
 ];
 
 const Gallery = () => {
